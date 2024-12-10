@@ -1,0 +1,17 @@
+ go run cmd/main.go curl 'https://chatgpt.com/ces/v1/t' -X \
+    POST -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:133.0) Gecko/20100101 Firefox/133.0' \
+    -H 'Accept: */*' \
+    -H 'Accept-Language: en-US,en;q=0.5' \
+    -H 'Accept-Encoding: gzip, deflate, br, zstd' \
+    -H 'Referer: https://chatgpt.com/' \
+    -H 'Content-Type: text/plain' \
+    -H 'Origin: https://chatgpt.com' \
+    -H 'Connection: keep-alive' \
+    -H 'Cookie: __Host-next-auth.csrf-token=852093cfa8c69ad95abdb5b068a530c3f494ab2c1122f34c2460457197cc9a34%7C899405a49e23590098a4ef9daa1499fc7c356bc41ef87f9af2e27fb305f52c5e; __Secure-next-auth.callback-url=https%3A%2F%2Fchat-onramp.unified-16.api.openai.com; oai-did=a8b1aa27-43c0-4362-aa60-5e212d4531f4; __cf_bm=jS6qPQEoBwj2G5GKZqjZIXzwKsRRH_FfjgQKYz_TKJw-1733856516-1.0.1.1-DvUNVnVJuEsEeutok0gMZ.Ojc2UF41Abu42voOvU_n8umnSbr5amyv05V1JvJCtrYDd6yhzac3_vxd7HY4NZyg; __cflb=0H28vzvP5FJafnkHxih59shtVRoGnoeAvoZEja1Z4qb; _cfuvid=d77s9zGc3VUvVz6e6ZpGhMEoMlb3OvPqwM.X0iI.iLk-1733856516268-0.0.1.1-604800000; oai-nav-state=1; _dd_s=rum=0&expire=1733857430896&logs=1&id=39c7ae0a-ecb9-4e8a-90c5-46c66163fc54&created=1733856516627; cf_clearance=XhZYJ7R23MLYaGlfx.BTTcpvkkMT.IsYKvpB6.sZTeY-1733856516-1.2.1.1-mWY.Y9SJNJEUQ36XmmspbNYPeuQR2iwv2EEIb3aQprZxCzTEzYtSaizeNDJkqpz0efr68MPalC_l5A8COkQh93RKbutqQlkfXHhA4hPc3CGIriuYrNAH9UI3UnAZjph91S9_ESovuWWkvfvRWzYbe02qiVeiyhlB.wnm8HmQ_uTpYLJhtds4rKTvOuIxEmeqge1KPEtJunFN8KsBCWf8OfSngX42X404ntDQHDpn15U_oYYUAizdaf98qSgoypW9Vd_3cwK3EGhXIYitLqdz8vzyPKQdFaVw65qx32_Q7PHcZrQFpA6TUKxYIM58vu5Zip6hFDbH9fnPmJo11CXZRZA6URVTEf32qlTr65MNbS8; oai-sc=0gAAAAABnWI0Fvij7oNrjGvG4S0q4vgEMgrTMZfn8UDIeNncRpEZ5WRCuLdAoBRw3zuN36UP58ffystJ_XHcICjjVFITkldi-HCZrPrYOnQa1GRFhDw2HS7GaqeEW3RbNbV76wheq-piBB-UUwWtQ-OFtwZ9utDIrzopuCMs9kXpD7yfU31V9gXhUaPz2xtJPdlHNhRUhvagE70o_4YxgWOcEvkTMjPH4TljqDIHt5pH275nxjhBM4qA' \
+    -H 'Sec-Fetch-Dest: empty' \
+    -H 'Sec-Fetch-Mode: cors' \
+    -H 'Sec-Fetch-Site: same-origin' \
+    -H 'Priority: u=4' \
+    -H 'TE: trailers' \
+    --data \
+    -raw '{"timestamp":"2024-12-10T18:48:50.983Z","integrations":{"Segment.io":true},"event":"View Template Prompt Ignore Suggestions","type":"track","properties":{"origin":"chat","app_version":"6b303db87b14d95f45a7b8d9bf49ad18d6538ee9"},"context":{"page":{"path":"/","referrer":"","search":"","title":"ChatGPT","url":"https://chatgpt.com/","hash":""},"userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:133.0) Gecko/20100101 Firefox/133.0","locale":"en-US","library":{"name":"analytics.js","version":"npm:next-1.73.0"},"timezone":"Europe/Paris","app_name":"chatgpt","app_version":"6b303db87b14d95f45a7b8d9bf49ad18d6538ee9","browser_locale":"en-US","device_id":"a8b1aa27-43c0-4362-aa60-5e212d4531f4","auth_status":"logged_out"},"messageId":"ajs-next-1733856530983-4865de5f-928b-4861-92a5-7f83e09f7a9f","anonymousId":"89a6ee92-04cd-4eb9-a5f9-96d74865de5f","writeKey":"oai","userId":null,"sentAt":"2024-12-10T18:48:50.986Z","_metadata":{"bundled":["Segment.io"],"unbundled":[],"bundledIds":[]}}'

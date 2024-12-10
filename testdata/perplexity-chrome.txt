@@ -1,0 +1,11 @@
+curl 'https://www.perplexity.ai/socket.io/?EIO=4&transport=polling&t=k7uqiwa6' \
+  -H 'accept: */*' \
+  -H 'accept-language: en-US,en;q=0.9' \
+  -H 'cookie: __cflb=02DiuDyvFMmK5p9jVbVnMNSKYZhUL9aGkRhJqNiC1KrWY; AWSALB=K1sihw2gv0V1qLCebFhQaEiyUx0ygp43k4dr38AmcRtmLiTGd6XkmofARNqs4dd+YPiUAKOMhjcELMz/7OGGgzejVPniyebvZng9fTWHsX4r7cTvlfLX6rIgAYxB; AWSALBCORS=K1sihw2gv0V1qLCebFhQaEiyUx0ygp43k4dr38AmcRtmLiTGd6XkmofARNqs4dd+YPiUAKOMhjcELMz/7OGGgzejVPniyebvZng9fTWHsX4r7cTvlfLX6rIgAYxB; __cf_bm=SqXZlhvgV4Q7L8IE6sBVhdcfioMLfGH8Kt_TOlvRnhU-1734264352-1.0.1.1-LE4V2viceUAATj0aYspno_VJto0.g6BGc7_tZFVNaGd2tt8wzL1LuFCLp5GV1ESwyz1Yju0sJKl4dsZsO5m.PA; cf_clearance=OUSZnSMSYSrLBxz8.Dk_TZek3J7CmOvIovhAToR5vFs-1734264352-1.2.1.1-qLqdNtNwwuVxIBxlJ3vmKnBvb2UaLPaxAlcqOzps1.myERyb2AIjdH38rqsgjW0npgjInUxt1FsQpjEbFjYQNeZ3qUIHiXeLnLeUZ2WunypGc7fvDDVDLBDxevrlbZQaGr484hnWZqdjGuuCmIxUxQZpIL8rTXwMttSQjV9PVAD1yXHUHCOVyJR.NEuZI.OBc0FCh46tB.fqWKW2rgtdOwlGCaao_Zo76AwctlmnWvPIxwGmEIRrK7PIk3eJluXhVh5Q1j_3CfhjTWdFrDCunbVdsVa7sqOpQav0N8lUaUZyroOT9sFtwNgBxAps1T5hyseHusb6dwGpawmyh6EpeeQHxSLVx9rQAE5Nt1rlSnlvW_SqbgUU6ELQ5qZ7vA0PzE1y4WNolqHjVqidguRFHnlBrEoZUXH1HmJoKGpyZn4' \
+  -H 'origin: https://labs.perplexity.ai' \
+  -H 'priority: u=1, i' \
+  -H 'referer: https://labs.perplexity.ai/' \
+  -H 'sec-fetch-dest: empty' \
+  -H 'sec-fetch-mode: cors' \
+  -H 'sec-fetch-site: same-site' \
+  -H 'user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1'

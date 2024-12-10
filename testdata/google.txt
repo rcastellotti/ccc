@@ -1,0 +1,14 @@
+curl 'https://stackoverflow.com/questions/7933460/how-do-you-write-multiline-strings-in-go' --compressed \
+    -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:133.0) Gecko/20100101 Firefox/133.0' \
+    -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8' \
+    -H 'Accept-Language: en-US,en;q=0.5' \
+    -H 'Accept-Encoding: gzip, deflate, br, zstd' \
+    -H 'Connection: keep-alive' \
+    -H 'Cookie: prov=c68c0bf8-c954-41a6-92a9-d7ac3b5d8663; OptanonConsent=isGpcEnabled=0&datestamp=Tue+Dec+10+2024+20%3A17%3A47+GMT%2B0100+(Central+European+Standard+Time)&version=202409.2.0&browserGpcFlag=0&isIABGlobal=false&hosts=&consentId=2a162163-1937-465c-b7c3-ce03b5d632fe&interactionCount=1&landingPath=NotLandingPage&groups=C0001%3A1%2CC0003%3A1%2CC0002%3A1%2CC0004%3A1&geolocation=IT%3B&isAnonUser=1&AwaitingReconsent=false; OptanonAlertBoxClosed=2024-09-03T19:15:33.551Z; eupubconsent-v2=CQEXhXAQEXhXAAcABBENBFF4AP_AAEPAACiQF5wBAAGAAgANAAvMC84AQAIAF5gAAAAA.f_gACHgAAAAA; __gads=ID=4fa7018aec654d3b:T=1725390933:RT=1733858263:S=ALNI_MabR-ro08tC4jetzKlF9TB8J6uT3Q; __gpi=UID=00000ed61f4ed23d:T=1725390933:RT=1733858263:S=ALNI_MZX-mk0wyX73J-I61E-IVJJYR3jHQ; __eoi=ID=fb053aa9eba98314:T=1725390933:RT=1733858263:S=AA-Afjb23naa34lQPLHqbwXMNDIt; _so_tgt=82e11a2a-0155-4287-870e-1ee14e379d98; __cflb=0H28vFHtoAR1ohjxFgDZBwZ5H5NWURYKCSDm6Vemhik; __cf_bm=bo0vjCBnokV6A2t7c2Fg1k3L_1IUxH37OBc36uVOOlo-1733858262-1.0.1.1-WJeZiODGkJaY1CrbkU_Gb7c6bhaitVqkINO8RsmVUp2rH1IOs7cosBE8AX_ToIe0IIzoVKu8OOW3zLt7WZmtbw; _cfuvid=p_fH9J7dNkgU9bvpiTtY32LpPb7MUrp2vQWnbevyed4-1733858262302-0.0.1.1-604800000; cf_clearance=NSdSpU6AdURAnl7OUfIur77xL7giHLHvLzaBtT7LIFw-1733858262-1.2.1.1-HQyKzJTLZPoza0avBWrFlqCfGDXydS_2uvkj5luYirjkKF1W6FLBYvTpQdG9QSw_6JteuYMoXV8XUaMTm_DjgI4.Pw24LDUQwR0GfrQX7DOj_kEQL9otNyyFKMN2ZsXWbkSBoFtyJ1UzuSH220LZBkLXj2VyqVSvyc0UgeJz.q7HVENUEdWpozlItyfYkXhmBwhelwC6UZZK.u1Omi81WT1XtWAxAjSgs3Kl8iSp5a7rIUw5UDA0p.Eb0zAWAr1Zrzd63e5m1eaKUxoYCnjA.xLH3J9PKUvlIzxoo0iNj2LGL36xhPBC5u.Hf8oolHiATVw6IQ5BEMwXsu9xnaaSBoxDYHk8DkpS_pLDj0zvzMI; _ga_WCZ03SZFCQ=GS1.1.1733858262.1.1.1733858267.55.0.0; _ga=GA1.1.1448956542.1733858263; _gid=GA1.2.397560962.1733858263; _gat=1' \
+    -H 'Upgrade-Insecure-Requests: 1' \
+    -H 'Sec-Fetch-Dest: document' \
+    -H 'Sec-Fetch-Mode: navigate' \
+    -H 'Sec-Fetch-Site: none' \
+    -H 'Sec-Fetch-User: ?1' \
+    -H 'Priority: u=0, i' \
+    -H 'TE: trailers' \

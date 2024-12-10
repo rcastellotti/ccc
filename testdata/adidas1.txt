@@ -1,0 +1,11 @@
+curl 'https://trial-eum-clienttons-s.akamaihd.net/eum/getdns.txt?c=pszi5nohn' \
+    -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:133.0) Gecko/20100101 Firefox/133.0' \
+    -H 'Accept: */*' \
+    -H 'Accept-Language: en-US,en;q=0.5' \
+    -H 'Accept-Encoding: gzip, deflate, br, zstd' \
+    -H 'Origin: https://www.adidas.it' \
+    -H 'Connection: keep-alive' \
+    -H 'Referer: https://www.adidas.it/' \
+    -H 'Sec-Fetch-Dest: empty' \
+    -H 'Sec-Fetch-Mode: cors' \
+    -H 'Sec-Fetch-Site: cross-site'
