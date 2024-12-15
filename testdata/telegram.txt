@@ -8,4 +8,5 @@ curl 'https://web.telegram.org/a/rlottie-wasm.wasm' \
     -H 'Sec-Fetch-Dest: empty' \
     -H 'Sec-Fetch-Mode: cors' \
     -H 'Sec-Fetch-Site: same-origin' \
-    -H 'Connection: keep-alive'
+    -H 'Connection: keep-alive' \
+    --output was.wasm
