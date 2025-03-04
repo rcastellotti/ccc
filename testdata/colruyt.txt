@@ -1,0 +1,15 @@
+curl 'https://www.colruyt.be/fr/produits/13890' \
+    -H 'accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7' \
+    -H 'accept-language: en-US,en;q=0.9' \
+    -H 'cache-control: max-age=0' \
+    -b 'colruytlanguage=fr; TS0138f243=016303f955ca6a9699369bbcd652907f6863d51c141583066034d3b24041417b00030a8bce0d264aa685fc9d6ba1b88b20c2682d44; TS0113bcfc=016303f955ca6a9699369bbcd652907f6863d51c141583066034d3b24041417b00030a8bce0d264aa685fc9d6ba1b88b20c2682d44; TS01ea2401=016303f95585444414cd3957e38a3fc5e0e77df49aa392e4eee5780dc2816afe51443dc8658618a963b7e38f6d4426a4ed2843182a; s_fid=397A611FEA542BFD-24D6C9344599A68C; s_cc=true; OptanonAlertBoxClosed=2025-03-04T19:04:46.896Z; assortmentSortingState=%7B%7D; TS01c7c76d=016303f955c04f9677d7fcc2448422b06963a1612a4664376d31720881cb7d4435dd40c9722bcc70d36c5cf25960557739733a8c75; reese84=3:y7sXr9pA4z3PXsydOHhbqg==:siqFNRaR0JfqI7i92RNtekBN/NiNVbPpM0keXOKp/1P+sT1vuzpmLg1SHpvDRsYQi0k4H9t6KalbjWyhrBUYd2yeIx7Fm9TPMniMrRQ0jK3P76ztgtIY0AltjezqMrEd+fjXS6qFRTAAsZDxTWzlj39DZhCoHZMymcHWemy5eBgzd7VYBj9OYScpZAaeT/KZLxiYrFgYlZdGL/9BccPA5kqKBArLsNI4LVbx4DR5zewOHP2PoojIlwTEtYif5qmJliLxq6jz2p+Cn14Jh39VUgIq2p1+GrOPbkFER5f6hbA+/NlBkTptnAWQXdEpWd3c0+clMR3XWb/fqPVYd56vH/lqjGsZGbCbVhNFEJCF388NLohk4KjYagnm3Max5urNsnT/21Hpt6VJhVq3PfXplujLOYm2uilVp+kZopWCqScqsyumL95mk6Rk0v8kZVhdXLo2Vl8h7bFeN6u+txzKEuSfbxRC1lHkaohYp3Q1SQmwYuBRYPjlHs6qeMVxptNSKnEhICrfFuCH7oMvjQNgCA==:r04OftYNw+n5CZKCrz08D9iLQogVYYtdlgLI+sXte9Y=; OptanonConsent=isGpcEnabled=0&datestamp=Tue+Mar+04+2025+21%3A48%3A29+GMT%2B0100+(Central+European+Standard+Time)&version=6.20.0&isIABGlobal=false&hosts=&consentId=59302baa-5e94-4498-92f5-ecf385f24940&interactionCount=1&landingPath=NotLandingPage&groups=C0001%3A1%2CC0003%3A1%2CC0002%3A1%2CC0004%3A1&geolocation=%3B&AwaitingReconsent=false; dtCookie=v_4_srv_21_sn_88A1D7F18540439C7FA671A075896141_perc_100000_ol_0_mul_1_app-3Ab84fed97a8123cd5_0; utag_main=v_id:0195628bccce001a68f4a6351cac00075002906d01788$_sn:2$_se:4$_ss:0$_st:1741123109835$vapi_domain:colruyt.be$dc_visit:2$ses_id:1741119337666%3Bexp-session$_pn:2%3Bexp-session$dc_event:2%3Bexp-session$dc_region:eu-central-1%3Bexp-session; tms_storevisit=eyJ0aW1lRXZlbnRfc3RhcnRUaW1lIjoxNzQxMTIxMzA5NzE4LCJ1c2VyX3Zpc2l0X2lkIjoiNDk2NzYyLjE3NDExMjEzMTA2NDMiLCJwYWdlX2RlcHRoIjoxLCJsYXN0X2xvZ2luX3N0YXRlIjoibm8iLCJwcmV2aW91c1BhZ2UiOnsicGFnZV9uYW1lIjoiQ09DQS1DT0xBJTIwWmVybyUyMFN1Z2FyJTIwTm8lMjBDYWZmZWluZSUyMG9yZGVyJTIwJTdDJTIwQ29scnV5dCIsInBhZ2VfcGF0aCI6IiUyRmZyJTJGcHJvZHVpdHMlMkYxMzg5MCJ9LCJhZGJsb2NrX3N0YXR1cyI6Im5vdGFjdGl2ZSJ9' \
+    -H 'priority: u=0, i' \
+    -H 'sec-ch-ua: "Not(A:Brand";v="99", "Google Chrome";v="133", "Chromium";v="133"' \
+    -H 'sec-ch-ua-mobile: ?0' \
+    -H 'sec-ch-ua-platform: "macOS"' \
+    -H 'sec-fetch-dest: document' \
+    -H 'sec-fetch-mode: navigate' \
+    -H 'sec-fetch-site: same-origin' \
+    -H 'sec-fetch-user: ?1' \
+    -H 'upgrade-insecure-requests: 1' \
+    -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36'

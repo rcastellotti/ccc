@@ -18,7 +18,7 @@ It features:
 
 # TODO
 
-- check `curl` is installed
+
 - create a web service we control to test
 
 
@@ -37,3 +37,8 @@ It features:
 - `_ga=GA1.1.1448956542.1733858263;`
 - `_gid=GA1.2.397560962.1733858263;`
 - `_gat=1`
+
+
+## TODOISTAN
+- check `curl` is installed
+- report issue when parse fails: https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/creating-an-issue#creating-an-issue-from-a-url-query
