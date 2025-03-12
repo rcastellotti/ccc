@@ -31,3 +31,7 @@ format: ## format files using gofumpt
 lint: ## lint files using golangci-lint
 	go run github.com/golangci/golangci-lint/cmd/golangci-lint@v1.64.6 run
 .PHONY: lint
+
+debug: ## debug main.go using delve
+	go run github.com/go-delve/delve/cmd/dlv@latest debug
+.PHONY: debug
