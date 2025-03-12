@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"errors"
 	"flag"
 	"net/http"
 	"os"
@@ -16,6 +17,7 @@ func TestMain(m *testing.M) {
 
 	if verbose {
 		zerolog.SetGlobalLevel(zerolog.DebugLevel)
+
 		log.Logger = log.Output(zerolog.ConsoleWriter{Out: os.Stderr})
 		log.Debug().Msg("Debug logging enabled")
 	} else {
@@ -91,9 +93,10 @@ func TestSplit(t *testing.T) {
 
 func TestParse(t *testing.T) {
 	tests := []struct {
-		name  string
-		input []string
-		want  *Command
+		name    string
+		input   []string
+		want    *Command
+		wantErr error
 	}{
 		{
 			name:  "real command parameters in url",
@@ -177,6 +180,11 @@ func TestParse(t *testing.T) {
 				Headers:     []string{"sec-ch-ua-platform: \"macOS\""},
 			},
 		},
+		{
+			name:    "command with unknown flag",
+			input:   []string{"curl", "https://rcastellotti.dev", "--chonkybear", "grizzly"},
+			wantErr: ErrUnrecognizedToken,
+		},
 	}
 	for _, tc := range tests {
 		t.Run(tc.name, func(t *testing.T) {
@@ -184,71 +192,77 @@ func TestParse(t *testing.T) {
 			log.Debug().Strs("tc.name", tc.input).Msg("command")
 
 			got, err := Parse(tc.input)
-			if err != nil {
-				t.Errorf("unexpected error: %v", err)
-			}
-
-			if got.CurlKeyword != tc.want.CurlKeyword {
-				t.Errorf("CurlKeyword: got %q, want %q", got.CurlKeyword, tc.want.CurlKeyword)
-			}
-
-			if got.URL != tc.want.URL {
-				t.Errorf("URL: got %q, want %q", got.URL, tc.want.URL)
-			}
-
-			if tc.want.Cookies == nil && len(got.Cookies) > 0 {
-				t.Errorf("no cookies expected, got: %v", got.Cookies)
-			} else if tc.want.Cookies != nil {
-				if len(got.Cookies) != len(tc.want.Cookies) {
-					t.Fatalf("cookie count mismatch: got %d, want %d", len(got.Cookies), len(tc.want.Cookies))
+			if tc.wantErr != nil {
+				if !errors.Is(err, tc.wantErr) {
+					t.Errorf("error mismatch: got %v, want %v", err, tc.wantErr)
+				}
+			} else {
+				if err != nil {
+					t.Errorf("unexpected error = %v", err)
 				}
 
-				for k := range tc.want.Cookies {
-					if k >= len(got.Cookies) || got.Cookies[k].Name != tc.want.Cookies[k].Name || got.Cookies[k].Value != tc.want.Cookies[k].Value {
-						t.Fatalf("cookie %d: got {Name: %q, Value: %q}, want {Name: %q, Value: %q}",
-							k, got.Cookies[k].Name, got.Cookies[k].Value, tc.want.Cookies[k].Name, tc.want.Cookies[k].Value)
+				if got.CurlKeyword != tc.want.CurlKeyword {
+					t.Errorf("CurlKeyword: got %q, want %q", got.CurlKeyword, tc.want.CurlKeyword)
+				}
+
+				if got.URL != tc.want.URL {
+					t.Errorf("URL: got %q, want %q", got.URL, tc.want.URL)
+				}
+
+				if tc.want.Cookies == nil && len(got.Cookies) > 0 {
+					t.Errorf("no cookies expected, got: %v", got.Cookies)
+				} else if tc.want.Cookies != nil {
+					if len(got.Cookies) != len(tc.want.Cookies) {
+						t.Fatalf("cookie count mismatch: got %d, want %d", len(got.Cookies), len(tc.want.Cookies))
+					}
+
+					for k := range tc.want.Cookies {
+						if k >= len(got.Cookies) || got.Cookies[k].Name != tc.want.Cookies[k].Name || got.Cookies[k].Value != tc.want.Cookies[k].Value {
+							t.Fatalf("cookie %d: got {Name: %q, Value: %q}, want {Name: %q, Value: %q}",
+								k, got.Cookies[k].Name, got.Cookies[k].Value, tc.want.Cookies[k].Name, tc.want.Cookies[k].Value)
+						}
 					}
 				}
-			}
 
-			if tc.want.Headers == nil && len(got.Headers) > 0 {
-				t.Errorf("no headers expected, got: %v", got.Headers)
-			} else if tc.want.Headers != nil {
-				if len(got.Headers) != len(tc.want.Headers) {
-					t.Fatalf("header count mismatch: got %d, want %d", len(got.Headers), len(tc.want.Headers))
-				}
+				if tc.want.Headers == nil && len(got.Headers) > 0 {
+					t.Errorf("no headers expected, got: %v", got.Headers)
+				} else if tc.want.Headers != nil {
+					if len(got.Headers) != len(tc.want.Headers) {
+						t.Fatalf("header count mismatch: got %d, want %d", len(got.Headers), len(tc.want.Headers))
+					}
 
-				for i, h := range tc.want.Headers {
-					if got.Headers[i] != h {
-						t.Fatalf("header %d: got %q, want %q", i, got.Headers[i], h)
+					for i, h := range tc.want.Headers {
+						if got.Headers[i] != h {
+							t.Fatalf("header %d: got %q, want %q", i, got.Headers[i], h)
+						}
 					}
 				}
-			}
 
-			if tc.want.Flags == nil && len(got.Flags) > 0 {
-				t.Errorf("no flags expected, got: %v", got.Flags)
-			} else if tc.want.Flags != nil {
-				if len(got.Flags) != len(tc.want.Flags) {
-					t.Fatalf("flag count mismatch: got %d, want %d", len(got.Flags), len(tc.want.Flags))
-				}
+				if tc.want.Flags == nil && len(got.Flags) > 0 {
+					t.Errorf("no flags expected, got: %v", got.Flags)
+				} else if tc.want.Flags != nil {
+					if len(got.Flags) != len(tc.want.Flags) {
+						t.Fatalf("flag count mismatch: got %d, want %d", len(got.Flags), len(tc.want.Flags))
+					}
 
-				for i, f := range tc.want.Flags {
-					if got.Flags[i] != f {
-						t.Fatalf("flag %d: got %q, want %q", i, got.Flags[i], f)
+					for i, f := range tc.want.Flags {
+						if got.Flags[i] != f {
+							t.Fatalf("flag %d: got %q, want %q", i, got.Flags[i], f)
+						}
 					}
 				}
-			}
 
-			if tc.want.Options == nil && len(got.Options) > 0 {
-				t.Errorf("no options expected, got: %v", got.Options)
-			} else if tc.want.Options != nil {
-				if len(got.Options) != len(tc.want.Options) {
-					t.Fatalf("option count mismatch: got %d, want %d", len(got.Options), len(tc.want.Options))
-				}
+				if tc.want.Options == nil && len(got.Options) > 0 {
+					t.Errorf("no options expected, got: %v", got.Options)
+				} else if tc.want.Options != nil {
+					if len(got.Options) != len(tc.want.Options) {
+						t.Fatalf("option count mismatch: got %d, want %d", len(got.Options), len(tc.want.Options))
+					}
 
-				for ok, ov := range tc.want.Options {
-					if got.Options[ok] != ov {
-						t.Fatalf("option %s: got %q, want %q", ov, got.Options[ov], ok)
+					for ok, ov := range tc.want.Options {
+						if got.Options[ok] != ov {
+							t.Fatalf("option %s: got %q, want %q", ov, got.Options[ov], ok)
+						}
 					}
 				}
 			}
