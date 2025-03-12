@@ -4,6 +4,8 @@ import (
 	"errors"
 	"fmt"
 	"net/http"
+	"os"
+	"os/exec"
 	"slices"
 	"strings"
 	"unicode"
@@ -98,7 +100,7 @@ func mustParseCookies(cookieStr string) []*http.Cookie {
 	return cookies
 }
 
-var ErrUnexpectedToken = errors.New("unexpected token in curl command")
+var ErrUnrecognizedToken = errors.New("unrecognized token in curl command")
 
 // Parse function gets input from os.Args, ccc is called as ccc <CCC_FLAGS> curl <CURL_FLAGS/OPTIONS>,
 // This means that options (see definition above) can be parsed by examining `cTok` (current token) and `nTok` (next token)
@@ -149,7 +151,9 @@ func Parse(rawCmd []string) (*Command, error) {
 			counter += 2
 
 		default:
-			return nil, fmt.Errorf("unexpected token: %w: %q", ErrUnexpectedToken, cTok)
+			log.Error().Str("cTok", cTok).Msg("unrecognized token:")
+
+			return nil, fmt.Errorf("cmd.Parse: %w: %s", ErrUnrecognizedToken, cTok)
 		}
 	}
 
@@ -183,4 +187,46 @@ func (c Command) String() string {
 	parts = append(parts, fmt.Sprintf("\n\t%q", c.URL))
 
 	return strings.Join(parts, "")
+}
+
+// temporarily returns a string, as we do not want fail if the user decides to
+// edit a valid command into a broken one, this will probably change in the future.
+func (c Command) OpenInEditor() (string, error) {
+	tmpFile, err := os.CreateTemp("", "ccc-*.txt")
+	if err != nil {
+		return "", err
+	}
+
+	tmpFileName := tmpFile.Name()
+	log.Debug().Str("tmpfile", tmpFileName).Msg("cookie string to parse")
+	defer tmpFile.Close()
+
+	_, err = tmpFile.WriteString(c.String() + "\n")
+	if err != nil {
+		return "", err
+	}
+
+	editor := os.Getenv("EDITOR")
+	if editor == "" {
+		// vi || gtfo, dont' ask yourself whether ccc can have good fallbacks,
+		// if you are so picky, ask yourself why you have no `$EDITOR` set
+		editor = "vim"
+	}
+
+	cmd := exec.Command(editor, tmpFileName)
+	cmd.Stdin = os.Stdin
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+
+	err = cmd.Run()
+	if err != nil {
+		return "", err
+	}
+
+	content, err := os.ReadFile(tmpFileName)
+	if err != nil {
+		return "", err
+	}
+
+	return string(content), nil
 }
