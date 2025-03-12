@@ -1,9 +1,8 @@
 [linters]
+disable = ["depguard", "testpackage", "lll", "gci", "cyclop"]
 enable-all = true
-disable = [
-  "depguard",
-  "testpackage",
-  "lll",
-  "gci"
-]
 fast = true
+
+[[issues.exclude-rules]]
+linters = ["gocyclo", "gocognit", "funlen", "nestif"]
+path = "_test.go"
